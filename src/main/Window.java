@@ -1,7 +1,7 @@
 package main;
 
 /*
- * Creando un juego
+ * Creating a game
  */
 
 import data.GameConstants;
@@ -9,14 +9,13 @@ import graphics.Assets;
 import input.KeyBoard;
 import states.GameState;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferStrategy;
 
 /** The window of the Space Game */
-public class Window extends JFrame implements Runnable{
+public class Window extends JFrame implements Runnable {
 
-    public static final int WIDTH = 900, HEIGHT = 600;
     private Canvas canvas;
     private Thread thread;
     private boolean running = false;
@@ -37,16 +36,16 @@ public class Window extends JFrame implements Runnable{
     /** Allocates a new window of the game*/
     public Window() {
         setTitle("Space Game");
-        setSize(WIDTH, HEIGHT);
+        setSize(GameConstants.WIDTH, GameConstants.HEIGHT);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setResizable(false);
         setLocationRelativeTo(null);
         setVisible(true);
 
         canvas = new Canvas();
-        canvas.setPreferredSize(new Dimension(WIDTH, HEIGHT));
-        canvas.setMinimumSize(new Dimension(WIDTH, HEIGHT));
-        canvas.setMaximumSize(new Dimension(WIDTH, HEIGHT));
+        canvas.setPreferredSize(new Dimension(GameConstants.WIDTH, GameConstants.HEIGHT));
+        canvas.setMinimumSize(new Dimension(GameConstants.WIDTH, GameConstants.HEIGHT));
+        canvas.setMaximumSize(new Dimension(GameConstants.WIDTH, GameConstants.HEIGHT));
         canvas.setFocusable(true);
 
         keyBoard = new KeyBoard();
@@ -72,7 +71,7 @@ public class Window extends JFrame implements Runnable{
 
         // Drawing
         g.setColor(Color.BLACK);
-        g.fillRect(0, 0, WIDTH, HEIGHT);
+        g.fillRect(0, 0, GameConstants.WIDTH, GameConstants.HEIGHT);
 
         gameState.draw(g);
 
